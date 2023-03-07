@@ -1,19 +1,10 @@
-# my_flutter_app
+### reference
+- 강의 - https://www.youtube.com/watch?v=UCmjtoqu5aw&list=PLnIaYcDMsScxP2Nl8pEbmI__wkF0YVu0a&index=3 
+- API - https://docs.flutter.dev/cookbook/design/themes, https://docs.flutter.dev/get-started/install
+- 라이프 사이클, 구조 등등 https://velog.io/@realryankim/Flutter-LifeCycle%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-### 2023-03-06 ~
+### 2023-03-06
 - 기본 셋팅중
+
+### 2023-03-07
+- https://docs.flutter.dev/development/ui/layout/tutorial
