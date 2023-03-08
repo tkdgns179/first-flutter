@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/main.dart';
 
 class LayoutPage extends StatefulWidget {
   LayoutPage({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class LayoutPage extends StatefulWidget {
 }
 
 class _LayoutPageState extends State<LayoutPage> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -48,9 +50,9 @@ class _LayoutPageState extends State<LayoutPage> {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color, Icons.call, 'CALL'),
-        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color, Icons.share, 'SHARE'),
+        ReactableWidget(iconData : Icons.call, label : 'CALL'),
+        ReactableWidget(iconData : Icons.near_me, label : 'ROUTE'),
+        ReactableWidget(iconData : Icons.share, label : 'SHARE'),
       ],
     );
 
@@ -88,29 +90,85 @@ class _LayoutPageState extends State<LayoutPage> {
           )),
     );
   }
-
-
-
-
 }
 
-Column _buildButtonColumn(Color color, IconData icon, String label) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Icon(icon, color: color),
-      Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: color,
-              )
+class ReactableWidget extends StatefulWidget {
+
+  final IconData iconData;
+  final String label;
+
+  ReactableWidget({Key? key, required this.iconData, required this.label}) : super(key : key);
+
+  @override
+  State createState() {
+    return _ReactableWidgetState();
+  }
+}
+
+class _ReactableWidgetState extends State<ReactableWidget> with SingleTickerProviderStateMixin {
+
+  late double _scale;
+  late AnimationController _controller;
+
+  Color color = ThemeData().primaryColor;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this,
+        duration: Duration(microseconds: 20),
+        upperBound: 1,
+        lowerBound: 0.8,
+    )..addListener(() {
+      setState(() {
+
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _scale = _controller.value;
+
+    return GestureDetector(
+          onTapDown: _tapDown,
+          onTapUp: _tapUp,
+          child: Transform.scale(
+            scale: _scale,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(widget.iconData, color: color),
+                Container(
+                    margin: const EdgeInsets.only(top: 8),
+                    child: Text(
+                        widget.label,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: color,
+                        )
+                    )
+                )
+              ],
+            )
           )
-      )
-    ],
-  );
+      );
+  }
+
+  void _tapDown(TapDownDetails details) {
+    _controller.reverse();
+  }
+
+  void _tapUp(TapUpDetails details) {
+    _controller.forward();
+  }
 }

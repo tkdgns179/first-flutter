@@ -8,3 +8,8 @@
 
 ### 2023-03-07
 - https://docs.flutter.dev/development/ui/layout/tutorial
+
+### 2023-03-08
+- https://docs.flutter.dev/development/ui/layout/building-adaptive-apps
+- MouseRegion Widget 사용했는데 앱에서는 작동X 웹에서만 작동
+- 클릭시 바운스되는 이미지로 바꾸려고 시도 
