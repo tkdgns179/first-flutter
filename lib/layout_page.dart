@@ -117,9 +117,10 @@ class _ReactableWidgetState extends State<ReactableWidget> with SingleTickerProv
     super.initState();
     _controller = AnimationController(
         vsync: this,
-        duration: Duration(microseconds: 20),
-        upperBound: 1,
-        lowerBound: 0.8,
+        duration: Duration(milliseconds: 100),
+        upperBound: 0.1,
+        lowerBound: 0,
+        value: 0,
     )..addListener(() {
       setState(() {
 
@@ -135,7 +136,7 @@ class _ReactableWidgetState extends State<ReactableWidget> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    _scale = _controller.value;
+    _scale = 1 - _controller.value;
 
     return GestureDetector(
           onTapDown: _tapDown,
@@ -165,10 +166,10 @@ class _ReactableWidgetState extends State<ReactableWidget> with SingleTickerProv
   }
 
   void _tapDown(TapDownDetails details) {
-    _controller.reverse();
+    _controller.forward();
   }
 
   void _tapUp(TapUpDetails details) {
-    _controller.forward();
+    _controller.reverse();
   }
 }

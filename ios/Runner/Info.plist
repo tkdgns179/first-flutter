@@ -47,5 +47,15 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- kakao map webview 설정  -->
+	<key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key> <true/>
+            <key>NSAllowsArbitraryLoadsInWebContent</key> <true/>
+        </dict>
+     <key>io.flutter.embedded_views_preview</key> <true/>
+     	<key>YES</key>
+
 </dict>
 </plist>
