@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'layout_page.dart' as layout;
+import 'kakao_map.dart' as kakaoMap;
+import 'package:flutter_config/flutter_config.dart';
 
 // main function
-void main() => runApp(MyApp());
+void main() async {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
 
