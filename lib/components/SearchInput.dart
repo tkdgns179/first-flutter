@@ -10,8 +10,8 @@ import '/util/apiKey.dart';
 
 class SearchInput extends StatefulWidget {
 
-  final Function funcPointer;
-  SearchInput({Key? key, required this.funcPointer}) : super(key: key);
+  final Function searchedListHandler;
+  SearchInput({Key? key, required this.searchedListHandler}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return _SearchInputState();
@@ -33,7 +33,7 @@ class _SearchInputState extends State<SearchInput> {
 
   void setSearchText() {
     _searchText = _textController.text;
-    widget.funcPointer(_searchText);
+    widget.searchedListHandler(_searchText);
   }
 
   @override

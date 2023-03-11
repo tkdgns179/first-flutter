@@ -17,6 +17,8 @@
 ### 2023-03-09
 - https://pub.dev/packages/kakaomap_webview (kakaomap_webview 0.6.2 )
 - https://developers.kakao.com/docs/latest/ko/local/dev-guide 로컬 API
+- 카카오 로컬 RESTAPI 테스트
+![테스트](./images/API테스트.png)
 - 로컬 API에서 특정좌표 기준 키워드로 입력하면 검색결과를 받아 리스트로 뿌려주고 클릭시 지도로 넘어가는 식으로 구현 해보려함
 - DTO클래스 만드는데 null safety? sdk 버전문제인지 자꾸 컴파일에러뜸
 
@@ -26,3 +28,8 @@
 - 인스턴스 필드 가시성을 private 으로하면 생성자에서 언더바 안 된다고 뜸 (?)
 - 리액트랑 좀 비슷한데 함수포인터 넘기면서 상태를 끌어올리고 내리고 그럼 Provider라고 상태관리 라이브러리가 있다고함
 - 마지막으로 아이템 클릭이벤트시 위도경도 해당하는 웹뷰뿌리기하고 마칠예정
+
+### 2023-03-11
+- 검색 결과 레코드 클릭 시 지도 렌더링  
+![마지막](./images/마지막.png)
+![마지막](./images/마지막2.png)
